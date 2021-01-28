@@ -23,6 +23,7 @@ public class HandController : MonoBehaviour
         _actionMap = actionAsset.FindActionMap(controllerName);
         _inputActionGrip = _actionMap.FindAction(actionNameGrip);
         _inputActionTrigger = _actionMap.FindAction(actionNameTrigger);
+             
 
         //get the Animator
         _handAnimator = GetComponent<Animator>();
@@ -48,6 +49,8 @@ public class HandController : MonoBehaviour
 
         _handAnimator.SetFloat("Grip", gripValue);
         _handAnimator.SetFloat("Trigger", triggerValue);
+
+        Debug.Log(gripValue);
 
     }
 }
