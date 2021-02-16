@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lever
   - LeverTriggerZone
+  - Button
   layers:
   - Default
   - TransparentFX
