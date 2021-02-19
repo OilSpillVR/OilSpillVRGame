@@ -269,6 +269,17 @@
                 },
                 {
                     "name": "",
+                    "id": "405a7191-df4a-474c-9c1e-7c70b21e53c2",
+                    "path": "<XRController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "39aa1724-a43c-4afc-aba4-cb859e3202b7",
                     "path": "<XRController>{LeftHand}/Primary2DAxis",
                     "interactions": "",
