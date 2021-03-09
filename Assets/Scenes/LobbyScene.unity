@@ -473,8 +473,8 @@ MonoBehaviour:
   serverTickRate: 30
   serverBatching: 0
   serverBatchInterval: 0
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/OfflineScene.unity
+  onlineScene: Assets/Scenes/LobbyScene.unity
   transport: {fileID: 1197316666}
   networkAddress: localhost
   maxConnections: 4
@@ -486,7 +486,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs: []
   minPlayers: 3
-  menuScene: 
+  lobbyMenuScene: 
   roomPlayerPrefab: {fileID: 0}
   gamePlayerPrefab: {fileID: 0}
   playerSpawnSystem: {fileID: 0}
