@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyScene.unity
     guid: 9034b515c46b7094ca74b4cbed19cf8d
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: fcfdcafe4b6343c48ba0961864deb203,
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3fa4307cced64e040b20ab8072656a55,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4c58eb0a37447af4da0ed1db9405d1b7,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3308ba57c59daa7408114b09b46a180d,
       type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 644c07efd885b034084904ffe4aa6333,
       type: 2}
