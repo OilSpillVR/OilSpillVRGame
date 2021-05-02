@@ -30,14 +30,14 @@ public class WaypointMovement : MonoBehaviour
     {
         while (true)
         {           
-
+            // movement between waypoints
             transform.position = Vector3.MoveTowards(transform.position, _waypoints[_waypointIndex].position, _moveSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, _waypoints[_waypointIndex].position) < .2f)
             {
                 _waypointIndex++;
 
-                if (_waypointIndex > _waypoints.Length - 1)
+                if (_waypointIndex > _waypoints.Length - 1) // Go back to first waypoint
                     _waypointIndex = 0;
             }
 
