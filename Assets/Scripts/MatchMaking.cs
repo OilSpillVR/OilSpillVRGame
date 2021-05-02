@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace OilSpillVR
     {
         public string id;
         public SyncListGameObject players = new SyncListGameObject();
+
 
         public Match(string matchId, GameObject player)
         {
@@ -37,25 +39,72 @@ namespace OilSpillVR
     public class MatchMaking : NetworkBehaviour
     {
         public static MatchMaking instance;
-        public SyncListMatch matches = new SyncListMatch();
-        public SyncListString matchIDs = new SyncListString();
+        public SyncList<Match> matches = new SyncList<Match>();
+        public SyncList<string> matchIDs = new SyncList<string>();
+        [SerializeField] private GameObject turnManagerPrefab;
 
         public void Start()
         {
             instance = this;
         }
 
-        public bool HostGame(string matchId, GameObject player)
+        public bool HostGame(string matchId, GameObject player, out int playerIndex)
         {
+            playerIndex = -1;
             if (!matchIDs.Contains(matchId))
             {
                 matchIDs.Add(matchId);
                 matches.Add(new Match(matchId, player));
+                playerIndex = 1;
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        public bool JoinGame(string matchId, GameObject player, out int playerIndex)
+        {
+            playerIndex = -1;
+            if (matchIDs.Contains(matchId))
+            {
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    if (matches[i].id == matchId)
+                    {
+                        matches[i].players.Add(player);
+                        playerIndex = matches[i].players.Count;
+                        break;
+                    }
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void BeginGame(string matchId)
+        {
+            GameObject newTurnManager = Instantiate(turnManagerPrefab);
+            NetworkServer.Spawn(newTurnManager);
+            newTurnManager.GetComponent<NetworkMatchChecker>().matchId = matchId.ToGuid();
+            TurnManager turnManager = newTurnManager.GetComponent<TurnManager>();
+            for (int i = 0; i < matches.Count; i++)
+            {
+                if (matches[i].id == matchId)
+                {
+                    foreach (var player in matches[i].players)
+                    {
+                        Player _player = player.GetComponent<Player>();
+                        turnManager.AddPlayer(_player);
+                        _player.StartGame();
+                    }
+                    break;
+                }
             }
         }
 

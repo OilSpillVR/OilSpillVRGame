@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: 9034b515c46b7094ca74b4cbed19cf8d
+  - enabled: 1
+    path: Assets/Scenes/Oil Spill VR Main.unity
+    guid: 7d0309776a50f224580b6910ed5ae5b5
+  - enabled: 1
+    path: Assets/Scenes/OfflineScene.unity
+    guid: b57d03c5753e67041a7900c992b480de
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: fcfdcafe4b6343c48ba0961864deb203,
       type: 2}

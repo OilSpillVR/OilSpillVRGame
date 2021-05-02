@@ -19,16 +19,24 @@ public class ButtonActionController : MonoBehaviour
     }
       
 
+    /// <summary>
+    /// Starts an animation (Shade in)
+    /// </summary>
     public void ButtonDownAnimation()
     {
         Debug.Log("Activate Button pressed");
         _anim.SetTrigger("ButtonDown");
     }
-
+    /// <summary>
+    /// Starts an animation (Changing color) on Hover
+    /// </summary>
     public void ShowHoverIndicator()
     {
         objRenderer.material.color = Color.white;
     }
+    /// <summary> 
+    /// Starts an animation (Changing color) on Hover end
+    /// </summary>
     public void HideHoverIndicator()
     {
         objRenderer.material.color = startColor;

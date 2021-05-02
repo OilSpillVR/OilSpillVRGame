@@ -7,9 +7,13 @@ public class AutoHostClient : MonoBehaviour
 {
     [SerializeField] private NetworkManager networkManager;
 
-    public void JoinLocal()
+    /// <summary>
+    ///  Auto joins the server located in the url   
+    /// </summary>
+    /// <param name="url">IP</param>
+    public void JoinLocal(string url)
     {
-        networkManager.networkAddress = "localhost";
+        networkManager.networkAddress = url;
         networkManager.StartClient();
     }
 }
